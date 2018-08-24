@@ -13,15 +13,21 @@
     <div class="container">
         <div class="row">
             {{ range .Site.Params.services.list }}
-            <div class="col-lg-3 col-md-6 text-center">
-                <div class="service-box">
-                    <i class="fa fa-4x {{ .icon }} wow bounceIn text-primary"></i>
-                    <h3>{{ .title }}</h3>
-                    {{ with .description }}
-                        <p class="text-muted">{{ . }}</p>
-                    {{ end }}
+            {{ with .link }}
+            <a href="{{ . }}">
+            {{ end }}
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <i class="fa fa-4x {{ .icon }} wow bounceIn text-primary"></i>
+                        <h3>{{ .title }}</h3>
+                        {{ with .description }}
+                            <p class="text-muted">{{ . }}</p>
+                        {{ end }}
+                    </div>
                 </div>
-            </div>
+            {{ with .link }}
+            </a>
+            {{ end }}
             {{ end }}
         </div>
     </div>
